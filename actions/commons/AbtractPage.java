@@ -57,7 +57,7 @@ public abstract class AbtractPage {
 		find(driver,locator).click();
 	}
 	
-	public void sendkeyToElement(WebDriver driver, By locator, String text) {
+	public void setTextToElement(WebDriver driver, By locator, String text) {
 		element = find(driver,locator);
 		element.clear();
 		element.sendKeys(text);

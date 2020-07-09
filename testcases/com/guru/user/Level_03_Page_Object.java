@@ -35,18 +35,18 @@ public class Level_03_Page_Object{
 	  browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  
 	  //Open new Homepage
-	  homePage = new HomePageObject();
+	  homePage = new HomePageObject(browser);
   }
   
   @BeforeMethod
   public void beforeMethod() {
 	  //Click and open login page
 	  homePage.clickToMyAccount();
-	  loginPage = new LoginPageObject();
+	  loginPage = new LoginPageObject(browser);
 	  
 	  //Click and open register page
 	  loginPage.clickToCreateAnAccount();
-	  registerPage = new RegisterPageObject();
+	  registerPage = new RegisterPageObject(browser);
   }
   
   @Test
@@ -97,7 +97,7 @@ public class Level_03_Page_Object{
 	  registerPage.enterFirstName("Minh")
 	  	.enterMiddleName("Ba")
 	  	.enterLastName("Pham")
-	  	.enterEmail("minh100@yahoo.com")
+	  	.enterEmail("minh102@yahoo.com")
 	  	.enterPassword("123123")
 	  	.enterConfirmPassword("123123")
 	  	.clickRegister();
