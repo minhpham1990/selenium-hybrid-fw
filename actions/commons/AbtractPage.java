@@ -62,6 +62,11 @@ public abstract class AbtractPage {
 		element.clear();
 		element.sendKeys(text);
 	}
+	
+	public String getTextFromElement(WebDriver driver, By locator) {
+		element = find(driver,locator);
+		return element.getText();
+	}
 
 	
 }
