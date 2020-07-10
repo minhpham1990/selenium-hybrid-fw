@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -15,7 +16,7 @@ import pageObjects.liveGuru.HomePageObject;
 import pageObjects.liveGuru.LoginPageObject;
 import pageObjects.liveGuru.RegisterPageObject;
 
-public class Level_03_Page_Object{
+public class Level_03_Page_Object extends AbtractPage{
 	HomePageObject homePage;
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
@@ -97,12 +98,13 @@ public class Level_03_Page_Object{
 	  registerPage.enterFirstName("Minh")
 	  	.enterMiddleName("Ba")
 	  	.enterLastName("Pham")
-	  	.enterEmail("minh102@yahoo.com")
+	  	.enterEmail("minh"+randomInt()+"@yahoo.com")
 	  	.enterPassword("123123")
 	  	.enterConfirmPassword("123123")
 	  	.clickRegister();
-	  dashboardPage = new DashboardPageObject();
-	  dashboardPage.getWelcomeMessage();
+	  dashboardPage = new DashboardPageObject(browser);
+	  String welcomeMsg=dashboardPage.getWelcomeMessage();
+	  Assert.assertEquals(welcomeMsg, "Thank you for registering with Main Website Store.");
 	  
   }
   @AfterClass

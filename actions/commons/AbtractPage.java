@@ -1,5 +1,7 @@
 package commons;
 
+import java.util.Random;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -66,6 +68,11 @@ public abstract class AbtractPage {
 	public String getTextFromElement(WebDriver driver, By locator) {
 		element = find(driver,locator);
 		return element.getText();
+	}
+	
+	Random rand = new Random();
+	public int randomInt() {
+		return rand.nextInt(999);
 	}
 
 	
