@@ -37,11 +37,15 @@ public class Level_03_Page_Object extends AbtractPage{
 			  System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83");
 			  browser = new ChromeDriver();}
 		  }
-//	  else {
-//		  if(nameBrowser.contains("chrome")) {
-//			 System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83.exe");  
-//		  }
-//	  }
+	  else {
+		  if(nameBrowser.equals("chrome")) {
+			 System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83.exe");  
+		  }
+		  else if(nameBrowser.equals("firefox")) {
+				 System.setProperty("webdriver.gecko.driver", "browserDrivers/geckodriver.exe");  
+			  }
+		  
+	  }
 	  
 
 	  openPageUrl(browser, "http://live.demoguru99.com/");

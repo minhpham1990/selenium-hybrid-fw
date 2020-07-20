@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbtractPage {
 	
@@ -74,6 +75,12 @@ public abstract class AbtractPage {
 	public int randomInt() {
 		return rand.nextInt(999);
 	}
+	
+	public void waitForDisplay() {
+		WebDriverWait explicitWait;
+		explicitWait = new WebDriverWait(WebDriver driver, 20);
+	}
+	
 
 	
 }
