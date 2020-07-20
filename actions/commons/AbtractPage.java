@@ -6,6 +6,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -76,9 +77,11 @@ public abstract class AbtractPage {
 		return rand.nextInt(999);
 	}
 	
-	public void waitForDisplay() {
-		WebDriverWait explicitWait;
-		explicitWait = new WebDriverWait(WebDriver driver, 20);
+	//Wait element
+	WebDriverWait explicitWait;
+	public void waitForDisplay(WebDriver driver, By locator,int timeout) {	
+		explicitWait = new WebDriverWait(driver,timeout);
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
 
