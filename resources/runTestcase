@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="false">
-  <test name="Test">
-    <packages>
-    	<package name="com.guru.user"/>
-    </packages>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  
+  <test name="Run on Chrome">
+  <parameter name="browser" value="chrome"/>
+    <classes>
+    	<class name="com.guru.user.Level_03_Page_Object"/>
+    </classes>
+  </test> 
+  
+  <test name="Run on Firefox">
+  <parameter name="browser" value="firefox"/>
+    <classes>
+    	<class name="com.guru.user.Level_03_Page_Object"/>
+    </classes>
+  </test> 
+  
+</suite> 

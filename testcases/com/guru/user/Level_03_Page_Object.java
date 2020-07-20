@@ -4,10 +4,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.AbtractPage;
@@ -24,15 +26,25 @@ public class Level_03_Page_Object extends AbtractPage{
 	WebDriver browser;
 	String os = System.getProperty("os.name");
 	
+  @Parameters("browser")
   @BeforeClass
-  public void beforeClass() {
+  public void beforeClass(String nameBrowser) {
 	  if(os.contains("Mac")) {
-		  System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83");}
-	  else {
-		  System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83.exe");  
-	  }
-	  browser = new ChromeDriver();
-	  browser.get("http://live.demoguru99.com/");
+		  if(nameBrowser.equals("firefox")) {
+			  System.setProperty("webdriver.gecko.driver", "browserDrivers/geckodriver");
+			  browser = new FirefoxDriver();}
+		  else if(nameBrowser.equals("chrome")){
+			  System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83");
+			  browser = new ChromeDriver();}
+		  }
+//	  else {
+//		  if(nameBrowser.contains("chrome")) {
+//			 System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83.exe");  
+//		  }
+//	  }
+	  
+
+	  openPageUrl(browser, "http://live.demoguru99.com/");
 	  browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  
 	  //Open new Homepage
