@@ -17,6 +17,7 @@ import pageObjects.liveGuru.DashboardPageObject;
 import pageObjects.liveGuru.HomePageObject;
 import pageObjects.liveGuru.LoginPageObject;
 import pageObjects.liveGuru.RegisterPageObject;
+import pageUIs.liveGuru.RegisterPageUI;
 
 public class Level_03_Page_Object extends AbtractPage{
 	HomePageObject homePage;
@@ -68,6 +69,7 @@ public class Level_03_Page_Object extends AbtractPage{
   
   @Test
   public void Register_01_Empty_Data() {
+	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("")
 	  	.enterMiddleName("")
 	  	.enterLastName("")
@@ -78,6 +80,7 @@ public class Level_03_Page_Object extends AbtractPage{
   }
   @Test
   public void Register_02_Invalid_Email() {
+	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("")
 	  	.enterMiddleName("")
 	  	.enterLastName("")
@@ -89,6 +92,7 @@ public class Level_03_Page_Object extends AbtractPage{
   }
   @Test
   public void Register_03_Password_Less_Than_6_Char() {
+	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("")
 	  	.enterMiddleName("")
 	  	.enterLastName("")
@@ -100,6 +104,7 @@ public class Level_03_Page_Object extends AbtractPage{
   }
   @Test
   public void Register_04_Confirm_Password_Not_Match() {
+	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("")
 	  	.enterMiddleName("")
 	  	.enterLastName("")
@@ -111,6 +116,7 @@ public class Level_03_Page_Object extends AbtractPage{
   }
   @Test
   public void Register_05_Register_Successful() { 
+	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("Minh")
 	  	.enterMiddleName("Ba")
 	  	.enterLastName("Pham")

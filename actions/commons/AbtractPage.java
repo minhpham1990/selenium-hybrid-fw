@@ -84,6 +84,11 @@ public abstract class AbtractPage {
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
+	public void waitForUnDisplay(WebDriver driver, By locator,int timeout) {	
+		explicitWait = new WebDriverWait(driver,timeout);
+		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
+	
 
 	
 }

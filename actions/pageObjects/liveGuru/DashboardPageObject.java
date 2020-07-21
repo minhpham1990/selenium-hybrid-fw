@@ -14,5 +14,7 @@ public class DashboardPageObject extends AbtractPage{
 		// TODO Auto-generated method stub
 		return getTextFromElement(_pageDriver,DashboardPageUI.REGISTER_SUCCESS_MSG);
 	}
+	
+	
 
 }

@@ -8,11 +8,4 @@
     </classes>
   </test> 
   
-  <test name="Run on Firefox">
-  <parameter name="browser" value="firefox"/>
-    <classes>
-    	<class name="com.guru.user.Level_03_Page_Object"/>
-    </classes>
-  </test> 
-  
 </suite> 
