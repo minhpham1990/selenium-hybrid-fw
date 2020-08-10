@@ -1,9 +1,14 @@
 package commons;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -77,8 +82,17 @@ public abstract class AbtractPage {
 		return rand.nextInt(999);
 	}
 	
+	public void pauseBrowser(long timeSleep) {
+		try {
+			Thread.sleep(timeSleep);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	//Wait element
-	WebDriverWait explicitWait;
+	private WebDriverWait explicitWait;
 	public void waitForDisplay(WebDriver driver, By locator,int timeout) {	
 		explicitWait = new WebDriverWait(driver,timeout);
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -87,6 +101,19 @@ public abstract class AbtractPage {
 	public void waitForUnDisplay(WebDriver driver, By locator,int timeout) {	
 		explicitWait = new WebDriverWait(driver,timeout);
 		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
+	
+	public void takeScreenshot(WebDriver driver) {
+		TakesScreenshot scrShot = ((TakesScreenshot)driver);
+		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+		File DestFile=new File("uploadFiles/screenshot1.jpg");
+		try {
+			FileUtils.copyFile(SrcFile,DestFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 

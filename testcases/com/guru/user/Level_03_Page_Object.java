@@ -37,6 +37,9 @@ public class Level_03_Page_Object extends AbtractPage{
 		  else if(nameBrowser.equals("chrome")){
 			  System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83");
 			  browser = new ChromeDriver();}
+		  else {
+			  throw new RuntimeException("Please choose browser name correctly");
+		  }
 		  }
 	  else {
 		  if(nameBrowser.equals("chrome")) {
@@ -127,6 +130,7 @@ public class Level_03_Page_Object extends AbtractPage{
 	  dashboardPage = new DashboardPageObject(browser);
 	  String welcomeMsg=dashboardPage.getWelcomeMessage();
 	  Assert.assertEquals(welcomeMsg, "Thank you for registering with Main Website Store.");
+	  this.takeScreenshot(browser);
 	  
   }
   @AfterClass
