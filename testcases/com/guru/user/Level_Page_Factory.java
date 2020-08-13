@@ -19,7 +19,7 @@ import pageObjects.liveGuru.LoginPageObject;
 import pageObjects.liveGuru.RegisterPageObject;
 import pageUIs.liveGuru.RegisterPageUI;
 
-public class Level_03_Page_Object extends AbtractPage{
+public class Level_Page_Factory extends AbtractPage{
 	HomePageObject homePage;
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
