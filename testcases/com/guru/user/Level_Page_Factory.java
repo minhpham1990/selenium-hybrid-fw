@@ -123,7 +123,7 @@ public class Level_Page_Factory extends AbtractPage{
 	  registerPage.enterFirstName("Minh")
 	  	.enterMiddleName("Ba")
 	  	.enterLastName("Pham")
-	  	.enterEmail("minh"+randomInt()+"@yahoo.com")
+	  	.enterEmail("minh"+registerPage.randomNumber()+"@yahoo.com")
 	  	.enterPassword("123123")
 	  	.enterConfirmPassword("123123")
 	  	.clickRegister();

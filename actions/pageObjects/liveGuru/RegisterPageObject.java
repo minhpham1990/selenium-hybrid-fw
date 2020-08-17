@@ -1,5 +1,7 @@
 package pageObjects.liveGuru;
 
+import java.util.Random;
+
 import org.openqa.selenium.WebDriver;
 
 import commons.AbtractPage;
@@ -14,6 +16,7 @@ public class RegisterPageObject extends AbtractPage{
 
 	public RegisterPageObject enterFirstName(String value) {
 		// TODO Auto-generated method stub
+		waitForDisplay(_pageDriver, RegisterPageUI.FIRSTNAME_TXB,20);
 		setTextToElement(_pageDriver, RegisterPageUI.FIRSTNAME_TXB, value);
 		return this;
 	}
@@ -53,6 +56,13 @@ public class RegisterPageObject extends AbtractPage{
 		clickToElement(_pageDriver, RegisterPageUI.REGISTER_BTN);
 		return this;
 	}
+	
+	Random rand = new Random();
+	public int randomNumber() {
+		return rand.nextInt(999);
+	}
+	
+	
 	
 	
 	

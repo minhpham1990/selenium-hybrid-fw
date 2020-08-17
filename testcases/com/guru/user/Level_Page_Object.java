@@ -19,7 +19,7 @@ import pageObjects.liveGuru.LoginPageObject;
 import pageObjects.liveGuru.RegisterPageObject;
 import pageUIs.liveGuru.RegisterPageUI;
 
-public class Level_Page_Object extends AbtractPage{
+public class Level_Page_Object{
 	HomePageObject homePage;
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
@@ -51,8 +51,7 @@ public class Level_Page_Object extends AbtractPage{
 		  
 	  }
 	  
-
-	  openPageUrl(browser, "http://live.demoguru99.com/");
+	  browser.get("http://live.demoguru99.com/");
 	  browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  
 	  //Open new Homepage
@@ -72,7 +71,6 @@ public class Level_Page_Object extends AbtractPage{
   
   @Test
   public void Register_01_Empty_Data() {
-	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("")
 	  	.enterMiddleName("")
 	  	.enterLastName("")
@@ -83,7 +81,6 @@ public class Level_Page_Object extends AbtractPage{
   }
   @Test
   public void Register_02_Invalid_Email() {
-	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("")
 	  	.enterMiddleName("")
 	  	.enterLastName("")
@@ -95,7 +92,6 @@ public class Level_Page_Object extends AbtractPage{
   }
   @Test
   public void Register_03_Password_Less_Than_6_Char() {
-	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("")
 	  	.enterMiddleName("")
 	  	.enterLastName("")
@@ -107,7 +103,6 @@ public class Level_Page_Object extends AbtractPage{
   }
   @Test
   public void Register_04_Confirm_Password_Not_Match() {
-	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("")
 	  	.enterMiddleName("")
 	  	.enterLastName("")
@@ -119,18 +114,16 @@ public class Level_Page_Object extends AbtractPage{
   }
   @Test
   public void Register_05_Register_Successful() { 
-	  waitForDisplay(browser, RegisterPageUI.FIRSTNAME_TXB, 20);
 	  registerPage.enterFirstName("Minh")
 	  	.enterMiddleName("Ba")
 	  	.enterLastName("Pham")
-	  	.enterEmail("minh"+randomInt()+"@yahoo.com")
+	  	.enterEmail("minh"+registerPage.randomNumber()+"@yahoo.com")
 	  	.enterPassword("123123")
 	  	.enterConfirmPassword("123123")
 	  	.clickRegister();
 	  dashboardPage = new DashboardPageObject(browser);
 	  String welcomeMsg=dashboardPage.getWelcomeMessage();
 	  Assert.assertEquals(welcomeMsg, "Thank you for registering with Main Website Store.");
-	  this.takeScreenshot(browser);
 	  
   }
   @AfterClass

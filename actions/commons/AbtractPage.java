@@ -77,10 +77,6 @@ public abstract class AbtractPage {
 		return element.getText();
 	}
 	
-	Random rand = new Random();
-	public int randomInt() {
-		return rand.nextInt(999);
-	}
 	
 	public void pauseBrowser(long timeSleep) {
 		try {
