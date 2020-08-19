@@ -2,10 +2,10 @@ package pageObjects.liveGuru;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.AbtractPage;
+import commons.AbstractPage;
 import pageUIs.liveGuru.LoginPageUI;
 
-public class LoginPageObject extends AbtractPage{
+public class LoginPageObject extends AbstractPage{
 	
 	private WebDriver _pageDriver;
 	

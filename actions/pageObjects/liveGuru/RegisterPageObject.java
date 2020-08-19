@@ -4,10 +4,10 @@ import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.AbtractPage;
+import commons.AbstractPage;
 import pageUIs.liveGuru.RegisterPageUI;
 
-public class RegisterPageObject extends AbtractPage{
+public class RegisterPageObject extends AbstractPage{
 	private WebDriver _pageDriver;
 	
 	public RegisterPageObject(WebDriver pageDriver) {

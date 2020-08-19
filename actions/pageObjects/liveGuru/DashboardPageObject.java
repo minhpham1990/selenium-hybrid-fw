@@ -1,10 +1,10 @@
 package pageObjects.liveGuru;
 
 import org.openqa.selenium.WebDriver;
-import commons.AbtractPage;
+import commons.AbstractPage;
 import pageUIs.liveGuru.DashboardPageUI;
 
-public class DashboardPageObject extends AbtractPage{
+public class DashboardPageObject extends AbstractPage{
 	WebDriver _pageDriver;
 	
 	public DashboardPageObject(WebDriver pageDriver) {
