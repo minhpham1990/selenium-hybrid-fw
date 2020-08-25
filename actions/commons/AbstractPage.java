@@ -89,14 +89,20 @@ public abstract class AbstractPage {
 	
 	//Wait element
 	private WebDriverWait explicitWait;
-	public void waitForDisplay(WebDriver driver, By locator,int timeout) {	
+	private long timeout=10;
+	public void waitForDisplay(WebDriver driver, By locator) {	
 		explicitWait = new WebDriverWait(driver,timeout);
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
-	public void waitForUnDisplay(WebDriver driver, By locator,int timeout) {	
+	public void waitForUnDisplay(WebDriver driver, By locator) {	
 		explicitWait = new WebDriverWait(driver,timeout);
 		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
+	
+	public void waitElementClickAble(WebDriver driver,By locator) {
+		explicitWait = new WebDriverWait(driver, timeout);
+		explicitWait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 	
 	public void takeScreenshot(WebDriver driver) {

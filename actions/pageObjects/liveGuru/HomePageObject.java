@@ -15,9 +15,11 @@ public class HomePageObject extends AbstractPage{
 	}
 	
 	
-	public void clickToMyAccount() {
+	public LoginPageObject clickToMyAccount() {
 		// TODO Auto-generated method stub
 		clickToElement(_pageDriver, HomePageUI.MY_ACCOUNT_LOCATOR);
+		//return new LoginPageObject(_pageDriver);
+		return PageGeneratorManager.getLoginPage(_pageDriver);
 	}
 
-}
+} 

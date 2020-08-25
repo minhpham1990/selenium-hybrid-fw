@@ -1,5 +1,6 @@
 package com.guru.user;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -35,7 +36,7 @@ public class Level_Page_Object{
 			  System.setProperty("webdriver.gecko.driver", "browserDrivers/geckodriver");
 			  browser = new FirefoxDriver();}
 		  else if(nameBrowser.equals("chrome")){
-			  System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83");
+			  System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver");
 			  browser = new ChromeDriver();}
 		  else {
 			  throw new RuntimeException("Please choose browser name correctly");
@@ -71,56 +72,56 @@ public class Level_Page_Object{
   
   @Test
   public void Register_01_Empty_Data() {
-	  registerPage.enterFirstName("")
-	  	.enterMiddleName("")
-	  	.enterLastName("")
-	  	.enterEmail("")
-	  	.enterPassword("")
-	  	.enterConfirmPassword("")
-	  	.clickRegister();
+	  registerPage.enterFirstName("");
+	  registerPage.enterMiddleName("");
+	  registerPage.enterLastName("");
+	  registerPage.enterEmail("");
+	  registerPage.enterPassword("");
+	  registerPage.enterConfirmPassword("");
+	  registerPage.clickRegister();
   }
   @Test
   public void Register_02_Invalid_Email() {
-	  registerPage.enterFirstName("")
-	  	.enterMiddleName("")
-	  	.enterLastName("")
-	  	.enterEmail("abc@com")
-	  	.enterPassword("")
-	  	.enterConfirmPassword("")
-	  	.clickRegister();
+	  registerPage.enterFirstName("");
+	  registerPage.enterMiddleName("");
+	  registerPage.enterLastName("");
+	  registerPage.enterEmail("abc@com");
+	  registerPage.enterPassword("");
+	  registerPage.enterConfirmPassword("");
+	  registerPage.clickRegister();
 	  
   }
   @Test
   public void Register_03_Password_Less_Than_6_Char() {
-	  registerPage.enterFirstName("")
-	  	.enterMiddleName("")
-	  	.enterLastName("")
-	  	.enterEmail("")
-	  	.enterPassword("123")
-	  	.enterConfirmPassword("")
-	  	.clickRegister();
+	  registerPage.enterFirstName("");
+	  registerPage.enterMiddleName("");
+	  registerPage.enterLastName("");
+	  registerPage.enterEmail("");
+	  registerPage.enterPassword("123");
+	  registerPage.enterConfirmPassword("");
+	  registerPage.clickRegister();
 	  
   }
   @Test
   public void Register_04_Confirm_Password_Not_Match() {
-	  registerPage.enterFirstName("")
-	  	.enterMiddleName("")
-	  	.enterLastName("")
-	  	.enterEmail("")
-	  	.enterPassword("123123")
-	  	.enterConfirmPassword("123456")
-	  	.clickRegister();
+	  registerPage.enterFirstName("");
+	  registerPage.enterMiddleName("");
+	  registerPage.enterLastName("");
+	  registerPage.enterEmail("");
+	  registerPage.enterPassword("123123");
+	  registerPage.enterConfirmPassword("123456");
+	  registerPage.clickRegister();
 	  
   }
   @Test
   public void Register_05_Register_Successful() { 
-	  registerPage.enterFirstName("Minh")
-	  	.enterMiddleName("Ba")
-	  	.enterLastName("Pham")
-	  	.enterEmail("minh"+registerPage.randomNumber()+"@yahoo.com")
-	  	.enterPassword("123123")
-	  	.enterConfirmPassword("123123")
-	  	.clickRegister();
+	  registerPage.enterFirstName("Minh");
+	  registerPage.enterMiddleName("Ba");
+	  registerPage.enterLastName("Pham");
+	  registerPage.enterEmail("minh"+randomNumber()+"@yahoo.com");
+	  registerPage.enterPassword("123123");
+	  registerPage.enterConfirmPassword("123123");
+	  registerPage.clickRegister();
 	  dashboardPage = new DashboardPageObject(browser);
 	  String welcomeMsg=dashboardPage.getWelcomeMessage();
 	  Assert.assertEquals(welcomeMsg, "Thank you for registering with Main Website Store.");
@@ -130,5 +131,10 @@ public class Level_Page_Object{
   public void afterClass() {
 	  browser.quit();
   }
+  
+  Random rand = new Random();
+	public int randomNumber() {
+		return rand.nextInt(999);
+	}
   
 }
