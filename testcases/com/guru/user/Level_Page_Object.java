@@ -44,10 +44,12 @@ public class Level_Page_Object{
 		  }
 	  else {
 		  if(nameBrowser.equals("chrome")) {
-			 System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver83.exe");  
+			 System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver.exe"); 
+			 browser = new ChromeDriver();
 		  }
 		  else if(nameBrowser.equals("firefox")) {
 				 System.setProperty("webdriver.gecko.driver", "browserDrivers/geckodriver.exe");  
+				 browser = new FirefoxDriver();
 			  }
 		  
 	  }

@@ -15,6 +15,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.liveGuru.AboutUsPageObject;
+import pageObjects.liveGuru.CustomServicePageObject;
+import pageObjects.liveGuru.PageGeneratorManager;
+import pageObjects.liveGuru.SearchTermPageObject;
+import pageUIs.liveGuru.AboutUsPageUI;
+import pageUIs.liveGuru.DashboardPageUI;
+import pageUIs.liveGuru.SearchTermPageUI;
+
 public abstract class AbstractPage {
 	
 	// action for browser
@@ -104,6 +112,31 @@ public abstract class AbstractPage {
 		explicitWait = new WebDriverWait(driver, timeout);
 		explicitWait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
+	
+	
+	//ham open các page , chi nen mo nhung menu chung trong footer , header
+	public AboutUsPageObject openAboutUsPage(WebDriver driver) {
+		// TODO Auto-generated method stub
+		waitElementClickAble(driver, AbstractPageUI.ABOUT_US_FOOTER_LINK);
+		clickToElement(driver, AbstractPageUI.ABOUT_US_FOOTER_LINK);
+		return PageGeneratorManager.getAboutUsPage(driver);
+	}
+	
+	
+	public SearchTermPageObject openSearchTermPage(WebDriver driver) {
+		// TODO Auto-generated method stub	
+		waitElementClickAble(driver, AbstractPageUI.SEARCH_TERM_FOOTER_LINK);
+		clickToElement(driver,AbstractPageUI.SEARCH_TERM_FOOTER_LINK);
+		return PageGeneratorManager.getSearchTermPagePage(driver);
+	}
+
+	public CustomServicePageObject openCustomServicePage(WebDriver driver) {
+		// TODO Auto-generated method stub
+		waitElementClickAble(driver,AbstractPageUI.CUS_SERVICE_FOOTER_LINK);
+		clickToElement(driver,AbstractPageUI.CUS_SERVICE_FOOTER_LINK);
+		return PageGeneratorManager.getCusServicePage(driver);
+	}
+	
 	
 	public void takeScreenshot(WebDriver driver) {
 		TakesScreenshot scrShot = ((TakesScreenshot)driver);

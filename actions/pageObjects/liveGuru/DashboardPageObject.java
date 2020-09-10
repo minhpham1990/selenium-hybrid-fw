@@ -27,7 +27,6 @@ public class DashboardPageObject extends AbstractPage{
 		//return new HomePageObject(_pageDriver);
 		return PageGeneratorManager.getHomePage(_pageDriver);
 	}
-	
-	
+
 
 }
