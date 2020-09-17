@@ -73,7 +73,7 @@ public abstract class AbstractPage {
 	public void clickToElement(WebDriver driver, By locator) {
 		find(driver,locator).click();
 	}
-	
+		
 	public void setTextToElement(WebDriver driver, By locator, String text) {
 		element = find(driver,locator);
 		element.clear();
