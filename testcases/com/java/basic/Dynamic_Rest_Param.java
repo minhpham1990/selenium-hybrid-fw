@@ -1,9 +1,11 @@
 package com.java.basic;
 
+import org.openqa.selenium.By;
+
 public class Dynamic_Rest_Param {
 	public static final String DYNAMIC_FOOTER_PAGE="//div[@class='footer']//a//[@text='%s']//";
 	public static final String DYNAMIC_PAGE="//div[@class='%s']//a//[@text='%s']//";
-	
+	public static final By ABOUT_US_FOOTER_LINK = By.xpath("//a[contains(text(),'About Us')]");
 	public static void main(String[] args) {
 		clickElement(DYNAMIC_FOOTER_PAGE,"About Us");
 		clickElement(DYNAMIC_PAGE,"Header","About Us");

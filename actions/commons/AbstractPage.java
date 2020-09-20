@@ -2,6 +2,7 @@ package commons;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
@@ -73,6 +74,10 @@ public abstract class AbstractPage {
 	public void clickToElement(WebDriver driver, By locator) {
 		find(driver,locator).click();
 	}
+	
+	public void clickToElement(WebDriver driver,String locator) {
+		driver.findElement(By.xpath(locator)).click();
+	}
 		
 	public void setTextToElement(WebDriver driver, By locator, String text) {
 		element = find(driver,locator);
@@ -138,6 +143,15 @@ public abstract class AbstractPage {
 	}
 	
 	
+	//Using dynamic page
+	public String getDynamicLocator(String xpathDynamic, String value) {
+		return String.format(xpathDynamic, value);
+	}	
+	public void openFooterByPageName(WebDriver driver,String locator, String Pagename) {
+		clickToElement(driver, getDynamicLocator(locator, Pagename));
+	}
+	
+	
 	public void takeScreenshot(WebDriver driver) {
 		TakesScreenshot scrShot = ((TakesScreenshot)driver);
 		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
@@ -150,6 +164,7 @@ public abstract class AbstractPage {
 		}
 		
 	}
+	
 	
 
 	

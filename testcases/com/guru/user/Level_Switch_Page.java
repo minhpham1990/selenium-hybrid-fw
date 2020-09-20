@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import commons.AbstractPageUI;
 import pageObjects.liveGuru.AboutUsPageObject;
 import pageObjects.liveGuru.CustomServicePageObject;
 import pageObjects.liveGuru.DashboardPageObject;
@@ -124,8 +125,16 @@ public class Level_Switch_Page{
 	  aboutPage = customServicePage.openAboutUsPage(browser);
 	  
 	  customServicePage = aboutPage.openCustomServicePage(browser);
-	  
+  }
 //	  advancedSearchPage = customServicePage.openAdvancedSearchPage();	  
+	  
+  @Test
+  public void TC_04_Dynamic_Page_() {
+	  customServicePage.openFooterByPageName(browser, AbstractPageUI.DYNAMIC_FOOTER_LINK, "About Us");
+	  aboutPage = PageGeneratorManager.getAboutUsPage(browser);
+	  customServicePage.openFooterByPageName(browser, AbstractPageUI.DYNAMIC_FOOTER_LINK, "Search Terms");
+	  searchTermPage = PageGeneratorManager.getSearchTermPagePage(browser);
+		  
   }
   @AfterClass
   public void afterClass() {
